@@ -5,7 +5,7 @@ enum layer_number {
     _QWERTY = 0,
     _LOWER,
     _RAISE,
-    _ADJUST,
+    _SIMBOLS, 
 };
 
 enum {
@@ -38,32 +38,19 @@ qk_tap_dance_action_t tap_dance_actions[] = {
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
-    /* QWERTY
-     * ,-----------------------------------------.                    ,-----------------------------------------.
-     * | ESC  |   1  |   2  |   3  |   4  |   5  |                    |   6  |   7  |   8  |   9  |   0  |  BackSP   |
-     * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
-     * | Tab  |   Q  |   W  |   E  |   R  |   T  |                    |   Y  |   U  |   I  |   O  |   P  |  DEL   |
-     * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
-     * |LCTRL |   A  |   S  |   D  |   F  |   G  |-------.    ,-------|   H  |   J  |   K  |   L  |   ;  |  PAGE UP   |
-     * |------+------+------+------+------+------|   [   |    |    ]  |------+------+------+------+------+------|
-     * |LShift|   Z  |   X  |   C  |   V  |   B  |-------|    |-------|   N  |   M  |   ,  |   .  |   /  | PAGE DW|
-     * `-----------------------------------------/       /     \      \-----------------------------------------'
-     *                   | LAlt | LGUI |LOWER | /Space  /       \Enter \  |RAISE |BackSP| RGUI |
-     *                   |      |      |      |/       /         \      \ |      |      |      |
-     *                   `----------------------------'           '------''--------------------'
-     */
+
 
 [_QWERTY] = LAYOUT(
     //----------------------------------                            -------------------------------------
-    KC_ESC, KC_1, KC_2, KC_3, KC_4, KC_5,                           KC_6, KC_7, KC_8, KC_9, KC_0, KC_BSPC,
+    MT(KC_LSFT, KC_ESC), KC_1, KC_2, KC_3, KC_4, KC_5,              KC_6, KC_7, KC_8, KC_9, KC_0, MT(KC_RSFT,KC_BSPC),
     //----------------------------------                            -------------------------------------
-    KC_TAB, KC_Q, KC_W, KC_E, KC_R, KC_T,                           KC_Y, KC_U, KC_I, KC_O, KC_P, KC_DEL,
+    MT(KC_LCTRL,KC_TAB), KC_Q, KC_W, KC_E, KC_R, KC_T,              KC_Y, KC_U, KC_I, KC_O, KC_P, MT(KC_RCTRL,KC_DEL),
     //----------------------------------                            -------------------------------------
-    KC_LSFT, KC_A, KC_S, KC_D, KC_F, KC_G,                          KC_H, KC_J, KC_K, KC_L, KC_SCLN, KC_HOME,
+    MT(KC_LALT,ES_SCLN), KC_A, KC_S, KC_D, KC_F, KC_G,                          KC_H, KC_J, KC_K, KC_L, KC_SCLN, KC_HOME,
     //----------------------------------                            -------------------------------------
-    KC_LCTRL, KC_Z, KC_X, KC_C, KC_V, KC_B,   ES_QUES, ES_EXLM,     KC_N, KC_M, KC_COMM, KC_DOT, KC_SLSH, KC_END,
+    ES_COLN, KC_Z, KC_X, KC_C, KC_V, KC_B,   ES_QUES, ES_EXLM,     KC_N, KC_M, KC_COMM, KC_DOT, KC_SLSH, KC_END,
     //----------------------------------                            -------------------------------------
-        KC_LALT, KC_LGUI, KC_LGUI, LT(_LOWER, KC_SPC), LT(_RAISE, KC_ENT), KC_CAPS, KC_RSFT, KC_RALT),
+    _______, _______, KC_LGUI, LT(_LOWER, KC_SPC), LT(_SIMBOLS, KC_ENT), LT(_RAISE, ES_ACUT), ES_SLSH, KC_RALT),
  
 
 [_LOWER] = LAYOUT(
@@ -90,21 +77,22 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______, _______, _______, _______, _______, _______, _______,  ES_SCLN, ES_LBRC, ES_RBRC, _______,
     //----------------------------------                            -------------------------------------
     _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______),
-    /* ADJUST
-     * ,-----------------------------------------.                    ,-----------------------------------------.
-     * |      |      |      |      |      |      |                    |      |      |      |      |      |      |
-     * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
-     * |      |      |      |      |      |      |                    |      |      |      |      |      |      |
-     * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
-     * |      |      |      |      |      |      |-------.    ,-------|      |      |RGB ON| HUE+ | SAT+ | VAL+ |
-     * |------+------+------+------+------+------|       |    |       |------+------+------+------+------+------|
-     * |      |      |      |      |      |      |-------|    |-------|      |      | MODE | HUE- | SAT- | VAL- |
-     * `-----------------------------------------/       /     \      \-----------------------------------------'
-     *                   | LAlt | LGUI |LOWER | /Space  /       \Enter \  |RAISE |BackSP| RGUI |
-     *                   |      |      |      |/       /         \      \ |      |      |      |
-     *                   `----------------------------'           '------''--------------------'
-     */
-    [_ADJUST] = LAYOUT(XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______, _______, _______, _______, _______, _______, _______, _______)};
+
+ 
+[_SIMBOLS] = LAYOUT(
+    //----------------------------------                            -------------------------------------
+    _______, ES_PIPE, ES_AT, ES_HASH, ES_DLR, ES_PERC,              ES_AMPR, ES_SLSH, ES_LPRN, ES_RPRN, ES_EQL, _______,
+    //----------------------------------                            -------------------------------------
+    _______, _______, _______, _______, _______, _______,           ES_ASTR, ES_CIRC, _______, _______, KC_PSCR, _______,
+    //----------------------------------                            -------------------------------------
+    _______, _______, _______, _______, _______, _______,           _______, _______, _______, _______, _______, _______,
+    //----------------------------------                            -------------------------------------
+    _______, _______, _______, _______, _______, _______, _______,  _______, _______, _______, _______,
+    //----------------------------------                            -------------------------------------
+    _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______),
+    
+
+};
 
 layer_state_t layer_state_set_user(layer_state_t state) { return update_tri_layer_state(state, _LOWER, _RAISE, _ADJUST); }
 
