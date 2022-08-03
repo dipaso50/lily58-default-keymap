@@ -6,7 +6,6 @@ enum layer_number {
     _LOWER, 
     _RAISE, 
     _TILDE,
-    _PROGRAMMING,
     _FUNCTION,
     _ADJUST,
 };
@@ -65,11 +64,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     //----------------------------------                                         -------------------------------------
     KC_TAB, KC_Q, KC_W, KC_E, LT(_FUNCTION, KC_R), KC_T,                         KC_Y, KC_U, KC_I, KC_O, KC_P, KC_DEL,
     //----------------------------------                                         -------------------------------------
-    KC_LSFT, KC_A, KC_S, KC_D, LT(_TILDE, KC_F), KC_G,                           KC_H, KC_J, KC_K, KC_L, KC_SCLN, KC_HOME,
+    OSM(MOD_LSFT), KC_A, KC_S, KC_D, LT(_TILDE, KC_F), KC_G,                     KC_H, KC_J, KC_K, KC_L, KC_SCLN, KC_HOME,
     //----------------------------------                                         -------------------------------------
-    KC_LCTRL, KC_Z, KC_X, KC_C, KC_V, KC_B,               XXXXXXX, XXXXXXX,      KC_N, KC_M, KC_COMM, KC_DOT, KC_SLSH,KC_END,
+    OSM(MOD_LCTL), KC_Z, KC_X, KC_C, KC_V, KC_B,          XXXXXXX, XXXXXXX,      KC_N, KC_M, KC_COMM, KC_DOT, KC_SLSH,MT(KC_RSFT,KC_END),
     //----------------------------------                            -------------------------------------
-                KC_LALT, XXXXXXX, KC_LGUI , LT(_RAISE, KC_SPC), LT(_LOWER, KC_ENT),TD_QUES, TD_EXCL, KC_RSFT),
+                KC_LALT, OSM(MOD_LSFT), KC_LGUI , LT(_RAISE, KC_SPC), LT(_LOWER, KC_ENT),TD_QUES, TD_EXCL, XXXXXXX),
 
 
 
@@ -79,7 +78,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     //----------------------------------                                         -------------------------------------
     XXXXXXX, XXXXXXX, XXXXXXX, KC_LALT, XXXXXXX, XXXXXXX,                        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_PSCR, XXXXXXX,
     //----------------------------------                                         -------------------------------------
-    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                        XXXXXXX, KC_F4,  KC_F5, XXXXXXX, XXXXXXX, XXXXXXX,
+    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                        XXXXXXX, KC_F4,  KC_F5, KC_F11, XXXXXXX, XXXXXXX,
     //----------------------------------                                         -------------------------------------
     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
     //----------------------------------                                         -------------------------------------
@@ -92,7 +91,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     //----------------------------------                                         -------------------------------------
     XXXXXXX, XXXXXXX, ES_LPRN, ES_RPRN, ES_LABK, ES_RABK,                        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
     //----------------------------------                                         -------------------------------------
-    XXXXXXX, XXXXXXX, ES_LCBR, ES_RCBR, ES_MINS, ES_PLUS,                        XXXXXXX, MO(_PROGRAMMING), XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+    XXXXXXX, XXXXXXX, ES_LCBR, ES_RCBR, ES_MINS, ES_PLUS,                        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
     //----------------------------------                                         -------------------------------------
     XXXXXXX, XXXXXXX, ES_LBRC, ES_RBRC, XXXXXXX, XXXXXXX,   XXXXXXX,  XXXXXXX,   XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX , XXXXXXX, XXXXXXX,
     //----------------------------------                                         -------------------------------------
@@ -119,13 +118,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                              XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX
   ),
 
- [_PROGRAMMING] = LAYOUT(
-  XXXXXXX, XXXXXXX, XXXXXXX, ES_LABK, ES_RABK, XXXXXXX,                   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-  XXXXXXX, XXXXXXX, XXXXXXX, ES_LPRN, ES_RPRN, ES_ASTR,                   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-  XXXXXXX, XXXXXXX, XXXXXXX, ES_LCBR, ES_RCBR, ES_TILD,                   XXXXXXX, XXXXXXX , XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-  XXXXXXX, XXXXXXX, XXXXXXX, ES_LBRC, ES_RBRC, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-                             XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX
-  ),
+
 
   [_ADJUST] = LAYOUT(
   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
