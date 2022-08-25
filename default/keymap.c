@@ -6,6 +6,7 @@ enum layer_number {
     _LOWER, 
     _RAISE, 
     _TILDE,
+    _NUMBER,
     _FUNCTION,
     _ADJUST,
 };
@@ -55,91 +56,76 @@ qk_tap_dance_action_t tap_dance_actions[] = {
 #define TD_QUES TD(TD_QUESTION)// tab for ? double tab for ¿
 #define TD_EXCL TD(TD_EXCLAMATION) //tab for ! double tab for ¡
 
+
+#define TTTTTTT KC_TRNS
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 
 [_QWERTY] = LAYOUT(
     //----------------------------------                                         -------------------------------------
-    KC_ESC , KC_1, KC_2, KC_3, KC_4, KC_5,                                       KC_6, KC_7, KC_8, KC_9, KC_0, KC_BSPC,
+    TTTTTTT, TTTTTTT, TTTTTTT, TTTTTTT, TTTTTTT, TTTTTTT,                  TTTTTTT, TTTTTTT, TTTTTTT, TTTTTTT, TTTTTTT, TTTTTTT,
     //----------------------------------                                         -------------------------------------
-    KC_TAB, KC_Q, KC_W, KC_E, LT(_FUNCTION, KC_R), KC_T,                         KC_Y, KC_U, KC_I, KC_O, KC_P, KC_DEL,
+    KC_ESC, KC_Q, KC_W, KC_E, KC_R, KC_T,                                  KC_Y, KC_U, KC_I, KC_O, KC_P, KC_BSPC,
+    //----------------------------------                                         -------------------------------------  
+    KC_TAB, KC_A, KC_S, KC_D, LT(_TILDE, KC_F), KC_G,                      KC_H, KC_J, KC_K, KC_L, ES_COLN, KC_DEL,
     //----------------------------------                                         -------------------------------------
-    OSM(MOD_LSFT), KC_A, KC_S, KC_D, LT(_TILDE, KC_F), KC_G,                     KC_H, KC_J, KC_K, KC_L, KC_SCLN, KC_HOME,
-    //----------------------------------                                         -------------------------------------
-    OSM(MOD_LCTL), KC_Z, KC_X, KC_C, KC_V, KC_B,          XXXXXXX, XXXXXXX,      KC_N, KC_M, KC_COMM, KC_DOT, KC_SLSH,MT(KC_RSFT,KC_END),
+    KC_LCTL, KC_Z, KC_X, KC_C, KC_V, KC_B,          ES_COLN, ES_EQL,      LT(_NUMBER, KC_N), KC_M, KC_COMM, KC_DOT, KC_SLSH, KC_RCTL,
     //----------------------------------                            -------------------------------------
-                KC_LALT, OSM(MOD_LSFT), KC_LGUI , LT(_RAISE, KC_SPC), LT(_LOWER, KC_ENT),TD_QUES, TD_EXCL, XXXXXXX),
+               KC_LSFT, KC_LALT, KC_LGUI , LT(_RAISE, KC_SPC), LT(_LOWER, KC_ENT),KC_RGUI, KC_RALT, KC_RSFT),
 
 
 
-[_FUNCTION] = LAYOUT(
+[_NUMBER] = LAYOUT(
     //----------------------------------                                         -------------------------------------
-    KC_F11, KC_F1, KC_F2, KC_F3, KC_F4, KC_F5,                                   KC_F6, KC_F7, KC_F8, KC_F9, KC_F10, KC_F12,
+    TTTTTTT, TTTTTTT, TTTTTTT, TTTTTTT, TTTTTTT, TTTTTTT,                        TTTTTTT, TTTTTTT, TTTTTTT, TTTTTTT, TTTTTTT, TTTTTTT,
     //----------------------------------                                         -------------------------------------
-    XXXXXXX, XXXXXXX, XXXXXXX, KC_LALT, XXXXXXX, XXXXXXX,                        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_PSCR, XXXXXXX,
+    TTTTTTT,  KC_1, KC_2, KC_3, KC_4, KC_5,                                      TTTTTTT, TTTTTTT, TTTTTTT, TTTTTTT, KC_PSCR, TTTTTTT,
     //----------------------------------                                         -------------------------------------
-    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                        XXXXXXX, KC_F4,  KC_F5, KC_F11, XXXXXXX, XXXXXXX,
+    TTTTTTT,  KC_6, KC_7, KC_8, KC_9, KC_0,                                      TTTTTTT, TTTTTTT,  TTTTTTT, TTTTTTT, TTTTTTT, TTTTTTT,
     //----------------------------------                                         -------------------------------------
-    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+    TTTTTTT, ES_PLUS, ES_MINS, ES_ASTR, ES_SLSH, ES_EQL,                        TTTTTTT, TTTTTTT, TTTTTTT, TTTTTTT, TTTTTTT, TTTTTTT, TTTTTTT, TTTTTTT,
     //----------------------------------                                         -------------------------------------
-    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX),
+    TTTTTTT, TTTTTTT, TTTTTTT, TTTTTTT, TTTTTTT, TTTTTTT, TTTTTTT, TTTTTTT),
     //----------------------------------                                         -------------------------------------
 
 [_LOWER] = LAYOUT(
     //----------------------------------                                         -------------------------------------
-    XXXXXXX, ES_PIPE, ES_AT, ES_HASH, ES_DLR, ES_PERC,                           XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+    TTTTTTT, TTTTTTT, TTTTTTT, TTTTTTT, TTTTTTT, TTTTTTT,                         TTTTTTT, TTTTTTT, TTTTTTT, TTTTTTT, TTTTTTT, TTTTTTT,
     //----------------------------------                                         -------------------------------------
-    XXXXXXX, XXXXXXX, ES_LPRN, ES_RPRN, ES_LABK, ES_RABK,                        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+    TTTTTTT, ES_HASH, ES_LPRN, ES_RPRN, ES_LABK, ES_RABK,                        KC_F1, KC_F2, KC_F3, KC_F4, KC_F5, TTTTTTT,
     //----------------------------------                                         -------------------------------------
-    XXXXXXX, XXXXXXX, ES_LCBR, ES_RCBR, ES_MINS, ES_PLUS,                        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+    TTTTTTT, ES_AMPR, ES_LCBR, ES_RCBR, ES_SLSH, ES_BSLS,                        KC_F6, KC_F7, KC_F8, KC_F9, KC_F10, TTTTTTT,
     //----------------------------------                                         -------------------------------------
-    XXXXXXX, XXXXXXX, ES_LBRC, ES_RBRC, XXXXXXX, XXXXXXX,   XXXXXXX,  XXXXXXX,   XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX , XXXXXXX, XXXXXXX,
+    TTTTTTT, ES_AT, ES_LBRC, ES_RBRC, ES_ASTR, ES_EQL,     TTTTTTT,  TTTTTTT,    KC_F11, KC_F12, KC_CAPP, KC_CPYP, TTTTTTT,TTTTTTT,
     //----------------------------------                                         -------------------------------------
-                                       XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX),
+                                       TTTTTTT, TTTTTTT, ES_PIPE, ES_PERC, TTTTTTT, TTTTTTT, TTTTTTT, TTTTTTT),
 
 [_RAISE] = LAYOUT(
     //----------------------------------                                         -------------------------------------
-    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                        ES_AMPR, ES_SLSH, ES_LPRN, ES_RPRN, ES_EQL, XXXXXXX,
+    TTTTTTT, TTTTTTT, TTTTTTT, TTTTTTT, TTTTTTT, TTTTTTT,                        TTTTTTT, TTTTTTT, TTTTTTT, TTTTTTT, TTTTTTT, TTTTTTT,
     //----------------------------------                                         -------------------------------------
-    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                        ES_ASTR, ES_TILD, ES_CIRC, XXXXXXX, KC_PSCR, XXXXXXX,
+    TTTTTTT, TTTTTTT, TTTTTTT, TTTTTTT, TTTTTTT, TTTTTTT,                        KC_PGDN, KC_PGUP, KC_HOME, KC_END,  TTTTTTT,TTTTTTT,
     //----------------------------------                                         -------------------------------------
-    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                        KC_LEFT, KC_DOWN, KC_UP, KC_RGHT, XXXXXXX, XXXXXXX,
+    TTTTTTT, TTTTTTT,LGUI(KC_R), LGUI(KC_O), LGUI(KC_F9), KC_CAPS,               KC_LEFT, KC_DOWN, KC_UP, KC_RGHT, KC_INS, TTTTTTT,
     //----------------------------------                                         -------------------------------------
-    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,   XXXXXXX,  XXXXXXX,    XXXXXXX,  ES_BSLS, ES_SCLN, ES_COLN , ES_UNDS, XXXXXXX,
+    TTTTTTT, TTTTTTT, TTTTTTT, TTTTTTT, TTTTTTT, TTTTTTT,   TTTTTTT,  TTTTTTT,   TTTTTTT,  KC_RSFT, ES_SCLN, ES_COLN, LCTL_T(ES_UNDS), TTTTTTT,
     //----------------------------------                                         -------------------------------------
-                                       XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX),
+                                       TTTTTTT, TTTTTTT, TTTTTTT, TTTTTTT, TTTTTTT, TTTTTTT, TTTTTTT, TTTTTTT),
 
 
   [_TILDE] = LAYOUT(
-  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                   ES_GRV, ES_ACUT , ES_QUOT, ES_DQUO, XXXXXXX, XXXXXXX,
-  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-                             XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX
+  TTTTTTT, TTTTTTT, TTTTTTT, TTTTTTT, TTTTTTT, TTTTTTT,                   TTTTTTT, TTTTTTT, TTTTTTT, TTTTTTT, TTTTTTT, TTTTTTT,
+  TTTTTTT, TTTTTTT, TTTTTTT, TTTTTTT, TTTTTTT, TTTTTTT,                   ES_CIRC, ES_TILD, ES_DIAE, ES_IQUE, ES_QUES, TTTTTTT,
+  TTTTTTT, TTTTTTT, TTTTTTT, TTTTTTT, TTTTTTT, TTTTTTT,                   ES_GRV, ES_ACUT , ES_QUOT, ES_DQUO, TTTTTTT, TTTTTTT,
+  TTTTTTT, TTTTTTT, TTTTTTT, TTTTTTT, TTTTTTT, TTTTTTT, TTTTTTT, TTTTTTT, KC_SCLN, ES_IEXL, ES_EXLM, TTTTTTT, TTTTTTT,TTTTTTT,
+                             TTTTTTT, TTTTTTT, TTTTTTT, TTTTTTT, TTTTTTT,  TTTTTTT, TTTTTTT, TTTTTTT
   ),
 
 
 
-  [_ADJUST] = LAYOUT(
-  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-                             XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX
-  ) 
+  
 
 };
+ 
 
-layer_state_t layer_state_set_user(layer_state_t state) { return update_tri_layer_state(state, _LOWER, _RAISE, _ADJUST ); }
-
-
-
-bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-    if (record->event.pressed) {
-#ifdef OLED_DRIVER_ENABLE
-        set_keylog(keycode, record);
-#endif
-        // set_timelog();
-    }
-    return true;
-}
